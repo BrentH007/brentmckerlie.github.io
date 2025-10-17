@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brent McKerlie · Software Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Brent McKerlie — software developer, building AI, desktop, and mobile apps. Selected work, skills, and contact." />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:title" content="Brent McKerlie · Software Developer" />
+  <meta property="og:description" content="Selected Projects, Skills, and Contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta name="theme-color" content="#6b4eff" />
+
+  <!--
+    HOW TO UPDATE
+    1) Replace the text in the HERO section below (name, tagline, short bio, links).
+    2) Duplicate a PROJECT CARD (look for -- PROJECT CARD TEMPLATE --) and edit fields.
+    3) Replace any placeholder images with your own (recommended 1200x630 cover, 1:1 logo).
+    4) Commit as index.html to a GitHub repo and enable GitHub Pages (Settings → Pages → Deploy).
+
+    STYLE TWEAKS
+    - Change --accent, --bg, and --text variables for quick theming.
+    - Projects are pure HTML; no JS required. Cards auto-wrap responsively.
+
+    ACCESSIBILITY
+    - All interactive elements are <a> or <button> with :focus-visible styles.
+    - High-contrast focus rings and sufficient color contrast.
+  -->
+
+  <style>
+    :root{
+      --accent: #2980b9;          /* primary accent - blue */
+      --accent-2: #ffffff;        /* secondary accent - white */
+      --bg: #87ceeb;              /* light blue background */
+      --surface: #a0d8f0;         /* lighter blue card background */
+      --text: #2c3e50;            /* dark text for contrast */
+      --muted: #34495e;           /* dark secondary text */
+      --ring: #2980b9;            /* blue focus ring */
+      --card-radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.2);
+      --maxw: 1100px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f7fb; --surface:#ffffff; --text:#0e102b; --muted:#4b4f72; --ring:#6b4eff33; }
+    }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color:var(--text);
+    }
+    a{ color:inherit; text-decoration:none }
+    a.btn{ display:inline-flex; gap:.5rem; align-items:center; padding:.7rem 1rem; border:1px solid #2c3e5025; border-radius:999px; background:#ffffff20; backdrop-filter: blur(6px); transition:.22s; color:var(--text); }
+    a.btn:hover{ transform:translateY(-1px); border-color:#2c3e5040 }
+    a.btn.primary{ background:linear-gradient(135deg,var(--accent), #3498db); color:white; border:none }
+    a.btn.ghost{ background:transparent; border:1px dashed #2c3e5040; color:var(--text); }
+
+    .wrap{ max-width:var(--maxw); margin-inline:auto; padding:32px; }
+    header{ position:sticky; top:0; backdrop-filter: blur(8px); background:linear-gradient(to bottom, #87ceebcc, #87ceeb00); border-bottom:1px solid #2c3e5018; z-index:10 }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .logo{ display:flex; align-items:center; gap:.7rem; font-weight:700; letter-spacing:.3px }
+    .logo .mark{ width:34px; height:34px; border-radius:10px; box-shadow: 0 6px 20px #2980b955; overflow: hidden; }
+    .logo .mark img{ width: 100%; height: 100%; object-fit: cover; }
+    .nav a{ opacity:.9 }
+    .nav a:hover{ opacity:1 }
+
+    .hero{ display:grid; grid-template-columns: 1.2fr .8fr; gap:32px; align-items:center; padding:40px 0 10px }
+    @media (max-width:900px){ .hero{ grid-template-columns:1fr } }
+    .hero h1{ font-size:clamp(28px, 3.4vw, 48px); line-height:1.15; margin:0 0 12px }
+    .hero p.sub{ color:var(--muted); margin:0 0 20px }
+    .hero .cta{ display:flex; gap:12px; flex-wrap:wrap }
+
+    .profile{
+      background: linear-gradient(180deg, #ffffff07, transparent), var(--surface);
+      border:1px solid #ffffff10; border-radius:var(--card-radius); padding:20px; box-shadow:var(--shadow);
+      display:grid; grid-template-columns: 140px 1fr; gap:20px; align-items:center;
+    }
+    .avatar{ width:120px; height:120px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; font-weight:800; color:#fff; }
+    .statrow{ display:flex; gap:14px; flex-wrap:wrap; margin-top:8px }
+    .chip{ padding:.18rem .6rem; border-radius:999px; border:1px solid #ffffff2d; color:var(--muted); font-size:.85rem }
+
+    h2.section-title{ margin:32px 0 14px; font-size:1.5rem }
+
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:18px }
+
+    /* PROJECT CARD */
+    .project{ grid-column: span 6; background: linear-gradient(180deg, #ffffff07, transparent), var(--surface); border:1px solid #ffffff12; border-radius:var(--card-radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+    .project.large{ grid-column: span 12 }
+    @media (max-width:900px){ .project, .project.large{ grid-column:1/-1 } }
+    .cover{ aspect-ratio: 16/9; background:#22243b; display:grid; place-items:center; position:relative; }
+    .cover .tag{ position:absolute; top:10px; left:10px; background:#00000066; border:1px solid #ffffff30; padding:.25rem .5rem; border-radius:8px; font-size:.8rem }
+    .project .content{ padding:16px 16px 12px }
+    .project h3{ margin:0 0 6px; font-size:1.05rem }
+    .project p{ margin:0 0 10px; color:var(--muted) }
+    .meta{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:auto; padding:0 16px 16px }
+    .stack{ display:flex; gap:8px; flex-wrap:wrap }
+    .badge{ font-size:.8rem; padding:.2rem .5rem; border:1px solid #ffffff28; border-radius:8px; color:var(--muted) }
+    .links{ display:flex; gap:10px }
+
+    /* UTIL */
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+    .divider{ height:1px; background:#ffffff18; margin:28px 0 }
+
+    /* FOOTER */
+    footer{ color:var(--muted); padding:32px 0 40px }
+
+    /* Focus styles */
+    :focus-visible{ outline:3px solid var(--ring); outline-offset:3px; border-radius:8px }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="Home">
+        <span class="mark" aria-hidden="true">
+          <img src="images/thistle.jpg" alt="Logo" />
+        </span>
+        <span>Brent&nbsp;McKerlie</span>
+      </a>
+      <nav aria-label="Primary">
+        <a class="btn ghost" href="#projects">Projects</a>
+        <a class="btn ghost" href="#skills">Skills</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero" aria-labelledby="intro-heading">
+      <div>
+        <h1 id="intro-heading">Software Developer crafting AI Assisted desktop & mobile apps</h1>
+        <p class="sub">From PyQt desktop utilities to React and FastAPI systems, I create tools defined by clarity, performance, and user experience that actually feels good. Whether it’s a startup prototype or production platform, I bring technical depth and design focus to every project.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">See Selected Work</a>
+        </div>
+      </div>
+
+      <aside class="profile" aria-labelledby="profile-heading">
+        <h2 id="profile-heading" class="sr-only">Profile</h2>
+        <div class="avatar" aria-hidden="true">
+          <img src="profile-photo.jpg" alt="Brent McKerlie" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <div>
+          <strong>Brent McKerlie</strong>
+          <div class="statrow">
+            <span class="chip">Calgary (MST)</span>
+            <span class="chip">Open to Freelance/Remote</span>
+          </div>
+          <div class="statrow" aria-label="Links">
+            <a class="btn" href="mailto:bhmckerlie@shaw.ca">Email</a>
+            <a class="btn" href="https://www.instagram.com/brentm_jeno_fitness/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn" href="https://www.linkedin.com/in/brent-mckerlie-0a3601242/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-title">Selected Projects</h2>
+
+      <div class="grid">
+<!-- PROJECT CARD TEMPLATE
+        <article class="project">
+          <div class="cover">
+            <span class="tag">Desktop · 2025</span>
+            -- Replace with an <img> if you have a banner image --
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 4h18v12H3z" stroke="white" opacity=".75"/>
+              <path d="M8 20h8" stroke="white" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="content">
+            <h3>Project Name</h3>
+            <p>One‑sentence summary that explains what the project does and why it matters.</p>
+          </div>
+          <div class="meta">
+            <div class="stack">
+              <span class="badge">Python</span>
+              <span class="badge">PyQt6</span>
+              <span class="badge">OCR</span>
+            </div>
+            <div class="links">
+              <a class="btn" href="#" target="_blank" rel="noopener">Repo</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">Docs / Demo</a>
+            </div>
+          </div>
+        </article>
+        END TEMPLATE 
+-->
+
+        <!-- ReCALL (Featured) -->
+        <article class="project large">
+          <div class="cover">
+            <span class="tag">Featured · Desktop</span>
+            <img src="ReCall.jpg" alt="ReCall PDF Highlighter Screenshot" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="content">
+            <h3>ReCALL — OCR PDF Highlighter</h3>
+            <p>Desktop utility to search PDFs (including scanned docs) and auto‑highlight matches. Embeds preview, supports batch Optical Character Recognition (OCR), and exports annotated files.
+            </p>
+          </div>
+          <div class="meta">
+            <div class="stack">
+              <span class="badge">Python</span>
+              <span class="badge">PyQt6</span>
+              <span class="badge">pytesseract</span>
+              <span class="badge">pdfplumber</span>
+            </div>
+            <div class="links">
+              <a class="btn" href="https://github.com/BrentH007/RecallV2" target="_blank" rel="noopener">Repo</a>
+              <a class="btn" href="recall-screenshots.html" target="_blank" rel="noopener">Screens / Docs</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VoiceTaskOrganizer -->
+        <article class="project">
+          <div class="cover">
+            <span class="tag">Web & Mobile</span>
+            <img src="VoiceOrganizer.jpg" alt="Voice Organizer Screenshot" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="content">
+            <h3>VoiceTaskOrganizer</h3>
+            <p>Voice‑enabled task & calendar system with AI parsing. React + FastAPI + MongoDB, deployable on Kubernetes with GitHub Actions CI.</p>
+          </div>
+          <div class="meta">
+            <div class="stack">
+              <span class="badge">React</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">MongoDB</span>
+            </div>
+            <div class="links">
+              <a class="btn" href="https://github.com/BrentH007/VoiceTaskOrganizer/tree/main/VoiceNoteReminder" target="_blank" rel="noopener">Repo</a>
+              <a class="btn" href="voice-task-organizer-screenshots.html" target="_blank" rel="noopener">Screenshots</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Budget Analyzer (Godot) -->
+        <article class="project">
+          <div class="cover">
+            <span class="tag">Game Dev</span>
+            <div class="cover">
+              <span class="tag">Web & Mobile</span>
+            <img src="BudgetAnalyzer.jpg" alt="Budget Analyzer Screenshot" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+          <div class="content">
+            <h3>Budget Analyzer</h3>
+            <p>A comprehensive financial management app that allows users to import bank statements from CSV, Excel, Quickbooks Documents. Users Can categorize items in statements and receive a breakdown of income and expenses and receive suggestions how to reduce costs.</p>
+          </div>
+          <div class="meta">
+            <div class="stack">
+              <span class="badge">Godot 4</span>
+              <span class="badge">GDScript</span>
+              <span class="badge">UX</span>
+            </div>
+            <div class="links">
+              <a class="btn" href="https://github.com/BrentH007/BudgetAnalyzerPro" target="_blank" rel="noopener">Repo</a>
+              <a class="btn" href="budget-analyzer-screenshots.html" target="_blank" rel="noopener">Screenshots</a>
+            </div>
+          </div>
+        </article>
+
+                <!-- FitnessCoachPro -->
+        <article class="project">
+          <div class="cover">
+            <span class="tag">Web & Mobile</span>
+            <img src="FitnessCoachPro.jpg" alt="Your Fitness Coach Screenshot" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+          </div>
+          <div class="content">
+            <h3>FitnessCoachPro</h3>
+            <p>AI Fitness Coach that provides personalized workout plans, nutrition advice, and progress tracking.</p>
+          </div>
+          <div class="meta">
+            <div class="stack">
+              <span class="badge">React</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">MongoDB</span>
+            </div>
+            <div class="links">
+              <a class="btn" href="https://github.com/BrentH007/FitCoachPro.git" target="_blank" rel="noopener">Repo</a>
+              <a class="btn" href="https://ai-powered-mobile-fi-npcd.bolt.host/" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Alien Mobile Device Game - Coming Soon -->
+        <article class="project">
+          <div class="cover">
+            <span class="tag">Coming Soon · Mobile Game</span>
+            <img src="images/under_construction.jpg" alt="Under Construction - Alien Mobile Device Game" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="content">
+            <h3>Alien Mobile Device Game</h3>
+            <p>A Top Down 2D mobile game featuring RPG gameplay. Currently in development with exciting gameplay mechanics and exciting replayability.</p>
+          </div>
+          <div class="meta">
+            <div class="stack">
+              <span class="badge">Mobile</span>
+              <span class="badge">Game Dev</span>
+              <span class="badge">Coming Soon</span>
+            </div>
+            <div class="links">
+              <a class="btn" href="#" style="opacity: 0.6; cursor: not-allowed;">Repo - Coming Soon</a>
+              <a class="btn" href="#" style="opacity: 0.6; cursor: not-allowed;">Demo - Coming Soon</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more project cards by duplicating the TEMPLATE above -->
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="section-title">Skills & Tools</h2>
+      <div class="grid">
+        <article class="project">
+          <div class="content">
+            <h3>Languages & Frameworks</h3>
+            <p>Python (FastAPI, PyQt6), Java/Kotlin (Android), TypeScript/React, Flutter/Dart, Godot/GDScript.</p>
+            <div class="stack">
+              <span class="badge">Python</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">React</span>
+              <span class="badge">Flutter</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">PyQt6</span>
+            </div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="content">
+            <h3>Platforms & DevOps</h3>
+            <p>Docker, Kubernetes, GitHub Actions CI, GitHub Pages, Vercel/Netlify, Linux/Windows environments.</p>
+            <div class="stack">
+              <span class="badge">Docker</span>
+              <span class="badge">K8s</span>
+              <span class="badge">GitHub Actions</span>
+              <span class="badge">Pages</span>
+              <span class="badge">Linux</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="section-title">Contact</h2>
+      <p>To Hear About What I am Working on Next, For Collaborations, Freelance Work, or Just to Say Hi Contact me Via:</p>
+      <p>
+        <a class="btn primary" href="mailto:bhmckerlie@shaw.ca">Email Me</a>
+        <a class="btn" href="https://www.instagram.com/brentm_jeno_fitness/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn" href="https://www.linkedin.com/in/brent-mckerlie-0a3601242/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>© <span id="year">2025</span> · Built with semantic HTML & modern CSS. Deployed on GitHub Pages.</p>
+  </footer>
+
+  <script>
+    // Optional: keep the footer year current without any build step
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Budget Analyzer Screenshots & Documentation - Brent McKerlie</title>
+  <meta name="description" content="Screenshots and documentation for Budget Analyzer Pro by Brent McKerlie" />
+  <meta name="color-scheme" content="light dark" />
+
+  <style>
+    :root{
+      --accent: #4a90e2;
+      --accent-2: #ffffff;
+      --bg: #2c3e50;
+      --surface: #34495e;
+      --text: #ffffff;
+      --muted: #b8c5d6;
+      --ring: #4a90e2;
+      --card-radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.4);
+      --maxw: 1100px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f7fb; --surface:#ffffff; --text:#0e102b; --muted:#4b4f72; --ring:#6b4eff33; }
+    }
+    
+    * { box-sizing: border-box }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px; }
+    
+    .btn {
+      display: inline-flex;
+      gap: .5rem;
+      align-items: center;
+      padding: .7rem 1rem;
+      border: 1px solid #ffffff25;
+      border-radius: 999px;
+      background: #ffffff10;
+      backdrop-filter: blur(6px);
+      color: inherit;
+      text-decoration: none;
+      transition: .22s;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: #ffffff40; }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .header h1 {
+      margin: 0 0 16px;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 0 0 24px;
+    }
+    
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 32px;
+      margin: 48px 0;
+    }
+    
+    .screenshot-card {
+      background: linear-gradient(180deg, #ffffff07, transparent), var(--surface);
+      border: 1px solid #ffffff12;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .screenshot-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid #ffffff12;
+    }
+    
+    .screenshot-card .content {
+      padding: 20px;
+    }
+    
+    .screenshot-card h3 {
+      margin: 0 0 8px;
+      color: var(--text);
+    }
+    
+    .screenshot-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    
+    .features {
+      background: linear-gradient(180deg, #ffffff07, transparent), var(--surface);
+      border: 1px solid #ffffff12;
+      border-radius: var(--card-radius);
+      padding: 32px;
+      margin: 48px 0;
+    }
+    
+    .features h2 {
+      margin: 0 0 20px;
+      color: var(--accent);
+    }
+    
+    .features ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    
+    .features li {
+      margin-bottom: 8px;
+    }
+    
+    .back-link {
+      position: fixed;
+      top: 32px;
+      left: 32px;
+      z-index: 10;
+    }
+    
+    @media (max-width: 768px) {
+      .screenshots-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .back-link {
+        position: static;
+        margin-bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="btn back-link">← Back to Portfolio</a>
+  
+  <main class="wrap">
+    <div class="header">
+      <h1>Budget Analyzer Pro</h1>
+      <p>Comprehensive financial management app for importing, categorizing, and analyzing bank statements</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://github.com/BrentH007/BudgetAnalyzerPro" class="btn" target="_blank" rel="noopener">View on GitHub</a>
+        <a href="#features" class="btn">Features & Documentation</a>
+      </div>
+    </div>
+
+    <div class="screenshots-grid">
+      <!-- Main Dashboard Screenshot -->
+      <div class="screenshot-card">
+        <img src="images/budgetanalyzer-1.jpg" alt="Budget Analyzer main dashboard showing financial overview">
+        <div class="content">
+          <h3>Main Dashboard</h3>
+          <p>Comprehensive dashboard displaying income, expenses, and financial summaries with intuitive charts and graphs.</p>
+        </div>
+      </div>
+
+      <!-- Import Interface Screenshot -->
+      <div class="screenshot-card">
+        <img src="images/budgetanalyzer-2.jpg" alt="Budget Analyzer import interface for bank statements">
+        <div class="content">
+          <h3>Statement Import</h3>
+          <p>Easy import functionality supporting CSV, Excel, and QuickBooks formats. Drag-and-drop interface with validation.</p>
+        </div>
+      </div>
+
+      <!-- Categorization Screenshot -->
+      <div class="screenshot-card">
+        <img src="images/budgetanalyzer-3.jpg" alt="Budget Analyzer transaction categorization interface">
+        <div class="content">
+          <h3>Transaction Categorization</h3>
+          <p>Smart categorization system with auto-suggestions and custom categories for accurate expense tracking.</p>
+        </div>
+      </div>
+
+      <!-- Reports Screenshot -->
+      <div class="screenshot-card">
+        <img src="images/budgetanalyzer-4.jpg" alt="Budget Analyzer reports and analytics">
+        <div class="content">
+          <h3>Reports & Analytics</h3>
+          <p>Detailed financial reports with spending breakdowns, trends analysis, and cost reduction recommendations.</p>
+        </div>
+      </div>
+      <div class="screenshot-card">
+        <img src="images/budgetanalyzer-5.jpg" alt="Category Management Interface">
+        <div class="content">
+          <h3>Custom Category Management</h3>
+          <p>Create Personalized Categories to Meet Your Needs and Organize Your Finances.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="features" id="features">
+      <h2>Key Features & Documentation</h2>
+      
+      <h3>Core Functionality</h3>
+      <ul>
+        <li><strong>Multi-Format Import:</strong> Support for CSV, Excel, and QuickBooks document formats</li>
+        <li><strong>Smart Categorization:</strong> Automatic transaction categorization with manual override options</li>
+        <li><strong>Expense Analysis:</strong> Comprehensive breakdown of income and expenses with visual charts</li>
+        <li><strong>Cost Reduction:</strong> AI-powered suggestions for reducing expenses and optimizing spending</li>
+        <li><strong>Report Generation:</strong> Detailed financial reports with export capabilities</li>
+      </ul>
+
+      <h3>Technical Stack</h3>
+      <ul>
+        <li><strong>Godot 4:</strong> Modern game engine for cross-platform desktop application</li>
+        <li><strong>GDScript:</strong> Primary scripting language for application logic</li>
+        <li><strong>CSV Parser:</strong> Custom parsing engine for bank statement formats</li>
+        <li><strong>SQLite:</strong> Local database for transaction storage and management</li>
+        <li><strong>Chart.js Integration:</strong> Interactive charts and data visualization</li>
+      </ul>
+
+      <h3>Supported Formats & Features</h3>
+      <ul>
+        <li><strong>Import Formats:</strong> CSV, XLSX, XLS, QBO, QFX files</li>
+        <li><strong>Bank Support:</strong> Major banks and credit unions with standard formats</li>
+        <li><strong>Export Options:</strong> PDF reports, CSV data export, summary sheets</li>
+        <li><strong>Security:</strong> Local data storage with encrypted transaction details</li>
+        <li><strong>Backup:</strong> Automatic backup and restore functionality</li>
+      </ul>
+
+      <h3>Installation & Usage</h3>
+      <ul>
+        <li><strong>Platforms:</strong> Windows 10+, macOS 10.14+, Linux (Ubuntu 20.04+)</li>
+        <li><strong>Installation:</strong> Standalone executable with installer package</li>
+        <li><strong>Data Import:</strong> Wizard-guided import process with format detection</li>
+        <li><strong>User Guide:</strong> Built-in help system with video tutorials</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>
